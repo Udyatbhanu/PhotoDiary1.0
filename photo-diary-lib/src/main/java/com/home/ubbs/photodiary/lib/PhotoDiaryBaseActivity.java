@@ -1,4 +1,4 @@
-package com.home.ubbs.photodiary.framework;
+package com.home.ubbs.photodiary.lib;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.home.ubbs.photodiary.R;
 
 /**
  * Created by udyatbhanu-mac on 4/17/16.

@@ -1,11 +1,12 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "photodiary.com.home.ubbs.photodiary"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
@@ -23,12 +24,14 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
-    compile('com.mikepenz:materialdrawer:5.2.0@aar') {
-        transitive = true
+}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "~/.m2/repository") //Taken from mvn -X
+            pom.groupId = 'ubbs.home.com.core.lib'
+            pom.artifactId = 'core-lib'
+            pom.version = '0.0.1'
+        }
     }
-    compile 'com.mikepenz:google-material-typeface:2.2.0.1@aar'
-    compile 'com.mikepenz:fontawesome-typeface:4.4.0.1@aar'
-    compile 'com.mikepenz:crossfader:1.3.7@aar'
-    compile 'com.mikepenz:itemanimators:0.2.4@aar'
-    compile project(':photo-diary-lib')
 }

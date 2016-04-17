@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.home.ubbs.photodiary.framework.PhotoDiaryBaseActivity;
+import com.home.ubbs.photodiary.lib.PhotoDiaryBaseActivity;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
