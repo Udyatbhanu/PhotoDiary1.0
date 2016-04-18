@@ -1,0 +1,34 @@
+{
+  "MenuItems": {
+    "activity1": {
+      "title": "Home",
+      "activity": "com.home.ubbs.photodiary.HomeActivity",
+      "icon": "faw_home"
+    },
+    "activity2": {
+      "title": "New Album",
+      "activity": "com.home.ubbs.photodiary.NewAlbumActivity",
+      "icon": "faw_plus"
+    },
+    "activity3": {
+      "title": "Gallery",
+      "activity": "com.home.ubbs.photodiary.NewAlbumActivity",
+      "icon": "faw_eye"
+    },
+    "activity4": {
+      "title": "Settings",
+      "activity": "com.home.ubbs.photodiary.NewAlbumActivity",
+      "icon": "faw_cog"
+    },
+    "activity5": {
+      "title": "Feedback",
+      "activity": "com.home.ubbs.photodiary.NewAlbumActivity",
+      "icon": "faw_envelope"
+    },
+    "activity6": {
+      "title": "Help",
+      "activity": "com.home.ubbs.photodiary.NewAlbumActivity",
+      "icon": "faw_question"
+    }
+  }
+}

@@ -107,8 +107,17 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
         container.addView(child,params);
         child.setLayoutParams(params);
         final Activity activity = (Activity)child.getContext();
+        setUpSlidingMenu(activity);
+
+    }
 
 
+    /**
+     *
+     * @param activity
+     */
+
+    private void setUpSlidingMenu(final Activity activity){
         // Create the AccountHeader
         headerResult = new AccountHeaderBuilder()
                 .withActivity(activity)
@@ -119,9 +128,7 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
         Drawable background = getResources().getDrawable(R.drawable.menu);
         background.setAlpha(200);
 
-        int color = getResources().getColor(R.color.slider_color);
 
-        ViewGroup rootView = (ViewGroup)child.getParent();
 
         //Create the drawer
         result = new DrawerBuilder()
@@ -162,6 +169,7 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
 
                             if (intent != null) {
                                 activity.startActivity(intent);
+                                activity.finish();
                             }
                         }
 
@@ -181,11 +189,6 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
         //set the back arrow in the toolbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(false);
-
-
-
-
-
     }
 
     /**

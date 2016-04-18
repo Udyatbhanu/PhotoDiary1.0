@@ -1,7 +1,8 @@
-package com.home.ubbs.photodiary;
+package com.home.ubbs.photodiary.activity;
 
 import android.os.Bundle;
 
+import com.home.ubbs.photodiary.R;
 import com.home.ubbs.photodiary.lib.PhotoDiaryBaseActivity;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.Drawer;
