@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import com.mikepenz.fontawesome_typeface_library.FontAwesome;
+import com.home.ubbs.photodiary.lib.config.MenuConfiguration;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -25,6 +25,8 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+import java.util.List;
 
 
 /**
@@ -129,6 +131,26 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
         background.setAlpha(200);
 
 
+        List <IDrawerItem>listItems = MenuConfiguration.getInstance().getItems();
+//        IDrawerItem[] listArray = new PrimaryDrawerItem[MenuConfiguration.getInstance().getSize()];
+
+
+        Object[] itemsObjectArray = listItems.toArray();
+
+        IDrawerItem[] listArray = new IDrawerItem[MenuConfiguration.getInstance().getSize()*2];
+
+        for(int i=0; i<listArray.length; i++){
+            if(itemsObjectArray[i] instanceof PrimaryDrawerItem){
+                listArray[i] = (PrimaryDrawerItem)itemsObjectArray[i];
+            }else{
+                listArray[i] = (DividerDrawerItem)itemsObjectArray[i];
+            }
+        }
+
+
+
+
+
 
         //Create the drawer
         result = new DrawerBuilder()
@@ -141,17 +163,7 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
 
                 .withAccountHeader(headerResult) //set the AccountHeader we created earlier for the header
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_home).withIcon(FontAwesome.Icon.faw_home),
-                        new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_new_album).withIcon(FontAwesome.Icon.faw_plus),
-                        new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_gallery).withIcon(FontAwesome.Icon.faw_eye),
-                        new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog),
-                        new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_feedback).withIcon(FontAwesome.Icon.faw_envelope),
-                        new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_question)
+                        listArray
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -159,7 +171,7 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         Class clazz = null;
                         try{
-                            clazz = Class.forName("com.home.ubbs.photodiary.NewAlbumActivity");
+                            clazz = Class.forName("com.home.ubbs.photodiary.activity.NewAlbumActivity");
                         }catch(Exception e){
 
                         }
