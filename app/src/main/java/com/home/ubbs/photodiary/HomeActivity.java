@@ -6,7 +6,7 @@ import com.home.ubbs.photodiary.lib.PhotoDiaryBaseActivity;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.Drawer;
 
-public class MainActivity extends PhotoDiaryBaseActivity {
+public class HomeActivity extends PhotoDiaryBaseActivity {
 
     private static final int PROFILE_SETTING = 1;
 

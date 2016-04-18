@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Photo Diary 1.0</string>
     <string name="drawer_item_compact_header">CompactHeader Drawer</string>
+    <string name="drawer_item_new_album_header">New Album</string>
 
     <string name="drawer_item_home">Home</string>
     <string name="drawer_item_new_album">New Album</string>

@@ -1,6 +1,7 @@
 package com.home.ubbs.photodiary.lib;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -24,7 +25,6 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
 
 /**
@@ -106,7 +106,7 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
         View child = getLayoutInflater().inflate(layoutResID, null);
         container.addView(child,params);
         child.setLayoutParams(params);
-        Activity activity = (Activity)child.getContext();
+        final Activity activity = (Activity)child.getContext();
 
 
         // Create the AccountHeader
@@ -150,14 +150,22 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        if (drawerItem != null && drawerItem.getIdentifier() == 1) {
-                            startSupportActionMode(new ActionBarCallBack());
-                            findViewById(R.id.action_mode_bar).setBackgroundColor(getResources().getColor(R.color.Snow));
+                        Class clazz = null;
+                        try{
+                            clazz = Class.forName("com.home.ubbs.photodiary.NewAlbumActivity");
+                        }catch(Exception e){
+
                         }
 
-                        if (drawerItem instanceof Nameable) {
-//                            toolbar.setTitle("Hello World");
+                        if (drawerItem != null) {
+                            Intent intent = new Intent(activity, clazz);
+
+                            if (intent != null) {
+                                activity.startActivity(intent);
+                            }
                         }
+
+
 
                         return false;
                     }
