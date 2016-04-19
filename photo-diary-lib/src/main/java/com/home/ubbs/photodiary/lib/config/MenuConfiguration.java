@@ -26,7 +26,7 @@ public class MenuConfiguration {
 
 
     private int size;
-    public static MenuConfiguration INSTANCE = new MenuConfiguration();
+    private static MenuConfiguration INSTANCE = new MenuConfiguration();
 
     private MenuConfiguration() {
 
@@ -75,7 +75,7 @@ public class MenuConfiguration {
     }
 
 
-    public Class<Activity>[] getActivity() {
+    public Class<Activity>[] getActivities() {
         return activities;
     }
 
@@ -83,7 +83,7 @@ public class MenuConfiguration {
      * @param activities
      */
     public void setActivities(String[] activitiesClazzes) {
-
+        activities = new Class[activitiesClazzes.length];
         for (int i = 0; i < size; i++) {
             try {
                 this.activities[i] = Class.forName(activitiesClazzes[i]);

@@ -10,6 +10,7 @@ import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,7 +34,7 @@ import java.util.List;
  * Created by udyatbhanu-mac on 4/17/16.
  */
 public class PhotoDiaryBaseActivity extends AppCompatActivity {
-
+    private static final String TAG = PhotoDiaryBaseActivity.class.getSimpleName();
 
     protected Toolbar toolbar;
     private RelativeLayout parentLayout;
@@ -140,8 +141,10 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
         IDrawerItem[] listArray = new IDrawerItem[MenuConfiguration.getInstance().getSize()*2];
 
         for(int i=0; i<listArray.length; i++){
+            int j = -1;
             if(itemsObjectArray[i] instanceof PrimaryDrawerItem){
                 listArray[i] = (PrimaryDrawerItem)itemsObjectArray[i];
+                listArray[i].withIdentifier(j++);
             }else{
                 listArray[i] = (DividerDrawerItem)itemsObjectArray[i];
             }
@@ -171,9 +174,9 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         Class clazz = null;
                         try{
-                            clazz = Class.forName("com.home.ubbs.photodiary.activity.NewAlbumActivity");
+                            clazz = MenuConfiguration.getInstance().getActivities()[(int)drawerItem.getIdentifier()];
                         }catch(Exception e){
-
+                                Log.e(TAG, "Exception");
                         }
 
                         if (drawerItem != null) {
