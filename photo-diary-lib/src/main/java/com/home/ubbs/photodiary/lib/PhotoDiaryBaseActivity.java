@@ -3,7 +3,6 @@ package com.home.ubbs.photodiary.lib;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -128,23 +127,22 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
                 .withSavedInstance(savedInstanceState)
                 .build();
 
-        Drawable background = getResources().getDrawable(R.drawable.menu);
-        background.setAlpha(200);
+//        Drawable background = getResources().getDrawable(R.drawable.menu);
+//        background.setAlpha(40);
 
 
         List <IDrawerItem>listItems = MenuConfiguration.getInstance().getItems();
-//        IDrawerItem[] listArray = new PrimaryDrawerItem[MenuConfiguration.getInstance().getSize()];
 
 
         Object[] itemsObjectArray = listItems.toArray();
 
         IDrawerItem[] listArray = new IDrawerItem[MenuConfiguration.getInstance().getSize()*2];
-
+        int j = -1;
         for(int i=0; i<listArray.length; i++){
-            int j = -1;
+
             if(itemsObjectArray[i] instanceof PrimaryDrawerItem){
                 listArray[i] = (PrimaryDrawerItem)itemsObjectArray[i];
-                listArray[i].withIdentifier(j++);
+                listArray[i].withIdentifier(++j);
             }else{
                 listArray[i] = (DividerDrawerItem)itemsObjectArray[i];
             }
