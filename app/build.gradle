@@ -31,4 +31,7 @@ dependencies {
     compile 'com.mikepenz:crossfader:1.3.7@aar'
     compile 'com.mikepenz:itemanimators:0.2.4@aar'
     compile project(':photo-diary-lib')
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 }

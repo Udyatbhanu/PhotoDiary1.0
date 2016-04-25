@@ -3,10 +3,13 @@ package com.home.ubbs.photodiary.lib.config;
 import android.app.Activity;
 import android.util.Log;
 
+import com.home.ubbs.photodiary.lib.R;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.iconics.typeface.IIcon;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.ArrayList;
@@ -22,7 +25,7 @@ public class MenuConfiguration {
     private Class[] activities;
 
 
-    private List<IDrawerItem> items = new ArrayList<>();
+    private List<IDrawerItem>  items;
 
 
     private int size;
@@ -54,11 +57,20 @@ public class MenuConfiguration {
      *
      */
     public void setItems() {
+        items = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             items.add(new PrimaryDrawerItem().withName(titles[i]).
-                    withIcon(icons[i]));
-            items.add(new DividerDrawerItem());
+                    withIcon(icons[i]).withIdentifier(i));
+//            items[i] = new PrimaryDrawerItem().withName(titles[i]).
+//                    withIcon(icons[i]).withIdentifier(i);
+//            items.add(new PrimaryDrawerItem().withName(titles[i]).
+//                    withIcon(icons[i]).withIdentifier(i));
+//            items.add(new DividerDrawerItem());
         }
+
+        items.add(new PrimaryDrawerItem().withName("About").withIcon(FontAwesome.Icon.faw_info).withIdentifier(size));
+//        items.add(new SecondaryDrawerItem().withName("License").withIcon(FontAwesome.Icon.faw_cog));
+
 
 
     }
@@ -80,7 +92,7 @@ public class MenuConfiguration {
     }
 
     /**
-     * @param activities
+     * @param activitiesClazzes
      */
     public void setActivities(String[] activitiesClazzes) {
         activities = new Class[activitiesClazzes.length];

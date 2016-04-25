@@ -22,8 +22,6 @@ import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.DividerDrawerItem;
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.List;
@@ -50,7 +48,7 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo_diary_base);
+//        setContentView(R.layout.activity_photo_diary_base);
         this.savedInstanceState = savedInstanceState;
     }
 
@@ -131,22 +129,31 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
 //        background.setAlpha(40);
 
 
-        List <IDrawerItem>listItems = MenuConfiguration.getInstance().getItems();
+        List<IDrawerItem> listItems = MenuConfiguration.getInstance().getItems();
 
 
-        Object[] itemsObjectArray = listItems.toArray();
 
-        IDrawerItem[] listArray = new IDrawerItem[MenuConfiguration.getInstance().getSize()*2];
-        int j = -1;
-        for(int i=0; i<listArray.length; i++){
+//        IDrawerItem[] listArray = MenuConfiguration.getInstance().getItems();
+//
+//        listArray
+//        new DividerDrawerItem()
 
-            if(itemsObjectArray[i] instanceof PrimaryDrawerItem){
-                listArray[i] = (PrimaryDrawerItem)itemsObjectArray[i];
-                listArray[i].withIdentifier(++j);
-            }else{
-                listArray[i] = (DividerDrawerItem)itemsObjectArray[i];
-            }
-        }
+//        Object[] itemsObjectArray = listItems.toArray();
+//        listArray = listItems.toArray();
+
+//        IDrawerItem[] listArray = new IDrawerItem[MenuConfiguration.getInstance().getSize()*2];
+//
+//        Object[] itemsObjectArray = listItems.toArray();
+//        int j = -1;
+//        for(int i=0; i<listArray.length; i++){
+//
+//            if(itemsObjectArray[i] instanceof PrimaryDrawerItem){
+//                listArray[i] = (PrimaryDrawerItem)itemsObjectArray[i];
+//                listArray[i].withIdentifier(++j);
+//            }else{
+//                listArray[i] = (DividerDrawerItem)itemsObjectArray[i];
+//            }
+//        }
 
 
 
@@ -163,8 +170,10 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
                 .withSliderBackgroundColor(getResources().getColor(R.color.slider_color))
 
                 .withAccountHeader(headerResult) //set the AccountHeader we created earlier for the header
-                .addDrawerItems(
-                        listArray
+                .withHeaderPadding(true)
+                .withHeaderDivider(false)
+                .withDrawerItems(
+                        listItems
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -172,7 +181,14 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         Class clazz = null;
                         try{
+                        if(drawerItem.getIdentifier()== MenuConfiguration.getInstance().getItems().size()-1){
+                            clazz = AboutActivity.class;
+                        }else{
                             clazz = MenuConfiguration.getInstance().getActivities()[(int)drawerItem.getIdentifier()];
+                        }
+
+
+
                         }catch(Exception e){
                                 Log.e(TAG, "Exception");
                         }

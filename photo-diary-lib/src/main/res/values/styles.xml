@@ -1,0 +1,28 @@
+<resources>
+
+    <style name="CustomTheme" parent="MaterialDrawerTheme.TranslucentStatus">
+        <!-- ...and here we setting appcompat’s color theme attrs -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+
+
+        <!-- MaterialDrawer specific values -->
+        <item name="material_drawer_background">@color/material_drawer_dark_background</item>
+        <item name="material_drawer_primary_text">@color/slider_primary_text</item>
+        <item name="material_drawer_secondary_text">@color/material_drawer_dark_secondary_text</item>
+        <item name="material_drawer_hint_text">@color/material_drawer_dark_hint_text</item>
+        <item name="material_drawer_divider">@color/slider_divider</item>
+        <item name="material_drawer_selected">@color/slider_selected</item>
+        <item name="material_drawer_primary_icon">@color/slider_icon</item>
+
+        <item name="material_drawer_selected_text">#039BE5</item>
+        <item name="material_drawer_header_selection_text">
+            @color/material_drawer_dark_primary_text
+        </item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <!-- CAB :D -->
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+</resources>

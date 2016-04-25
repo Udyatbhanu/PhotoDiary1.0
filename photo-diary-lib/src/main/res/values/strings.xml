@@ -1,3 +1,4 @@
+
 <resources>
     <string name="app_name">Photo Diary 1.0</string>
     <string name="drawer_item_compact_header">CompactHeader Drawer</string>
@@ -8,5 +9,51 @@
     <string name="drawer_item_settings">Settings</string>
     <string name="drawer_item_feedback">Feedback</string>
     <string name="drawer_item_help">Help</string>
+
+    <string name="license_header">Libraries Used</string>
+    <string name="license_text">The following sets forth attribution notices for third party software that may be contained in portions of the Photo Diary application.</string>
+
+
+
+    <string name="material_drawer_header">MaterialDrawer</string>
+    <string name="iconics_drawer_header">Android-Iconics</string>
+    <string name="leak_canary_header">leakcanary</string>
+    <string name="mike_penz_apache_2_0"><![CDATA[Copyright 2016 Mike Penz<br></br>
+
+    <p>Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at</p>
+
+    http://www.apache.org/licenses/LICENSE-2.0<br></br><br></br>
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.]]></string>
+
+    <string name="leak_canary_2_0"><![CDATA[ Copyright 2015 Square, Inc.<br></br>
+
+    <p>Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at</p>
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.]]></string>
+
+
+
+
+
+    <string name="link">&lt;b&gt;Hello World&lt;/b&gt; This is a test of the URL &lt;a href="http://www.example.com/"&gt;Example&lt;/a&gt;</string>
+
+
+
+
 
 </resources>
