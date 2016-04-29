@@ -5,6 +5,15 @@
     <color name="button_color">#78909C</color>
     <color name="text_hint_color">#90A4AE</color>
     <color name="text_hint_activated_color">#37474F</color>
+    <color name="card_album">#ECEFF1</color>
+
+    <color name="camera_floating_button">#B0BEC5</color>
+    <color name="camera_color">#37474F</color>
+
+
+
+
+
 
 
 

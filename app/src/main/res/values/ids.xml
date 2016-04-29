@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <resources>
+
+        <!--
+            Generate an id
+        -->
+
+        <item type="id" name="title_text_view" />
+        <item type="id" name="album_image_view" />
+    </resources>
+
+
+
+
+
