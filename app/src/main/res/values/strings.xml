@@ -10,4 +10,9 @@
     <string name="drawer_item_feedback">Feedback</string>
     <string name="drawer_item_help">Help</string>
 
+
+    <string name="album.title">Title</string>
+    <string name="album.location">Location</string>
+    <string name="album.description">Description</string>
+
 </resources>

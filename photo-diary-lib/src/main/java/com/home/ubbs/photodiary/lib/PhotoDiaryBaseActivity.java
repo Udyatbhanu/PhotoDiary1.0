@@ -86,7 +86,6 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param layoutResID
      */
 
@@ -95,29 +94,27 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
 
         super.setContentView(R.layout.activity_photo_diary_base);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        container = (FrameLayout)findViewById(R.id.frame_container);
+        container = (FrameLayout) findViewById(R.id.frame_container);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         View child = getLayoutInflater().inflate(layoutResID, null);
-        container.addView(child,params);
+        container.addView(child, params);
         child.setLayoutParams(params);
-        final Activity activity = (Activity)child.getContext();
+        final Activity activity = (Activity) child.getContext();
         setUpSlidingMenu(activity);
 
     }
 
 
     /**
-     *
      * @param activity
      */
 
-    private void setUpSlidingMenu(final Activity activity){
+    private void setUpSlidingMenu(final Activity activity) {
         // Create the AccountHeader
         headerResult = new AccountHeaderBuilder()
                 .withActivity(activity)
@@ -130,7 +127,6 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
 
 
         List<IDrawerItem> listItems = MenuConfiguration.getInstance().getItems();
-
 
 
 //        IDrawerItem[] listArray = MenuConfiguration.getInstance().getItems();
@@ -156,10 +152,6 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
 //        }
 
 
-
-
-
-
         //Create the drawer
         result = new DrawerBuilder()
                 .withActivity(activity)
@@ -180,17 +172,16 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         Class clazz = null;
-                        try{
-                        if(drawerItem.getIdentifier()== MenuConfiguration.getInstance().getItems().size()-1){
-                            clazz = AboutActivity.class;
-                        }else{
-                            clazz = MenuConfiguration.getInstance().getActivities()[(int)drawerItem.getIdentifier()];
-                        }
+                        try {
+                            if (drawerItem.getIdentifier() == MenuConfiguration.getInstance().getItems().size() - 1) {
+                                clazz = AboutActivity.class;
+                            } else {
+                                clazz = MenuConfiguration.getInstance().getActivities()[(int) drawerItem.getIdentifier()];
+                            }
 
 
-
-                        }catch(Exception e){
-                                Log.e(TAG, "Exception");
+                        } catch (Exception e) {
+                            Log.e(TAG, "Exception");
                         }
 
                         if (drawerItem != null) {
@@ -201,7 +192,6 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
                                 activity.finish();
                             }
                         }
-
 
 
                         return false;
@@ -221,14 +211,12 @@ public class PhotoDiaryBaseActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param resourceId
      */
-    protected void setHeaderTitle(int resourceId){
-        if(getSupportActionBar()!=null){
+    protected void setHeaderTitle(int resourceId) {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(resourceId);
         }
-
 
 
     }
