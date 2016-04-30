@@ -3,12 +3,29 @@
     <!-- Base application theme. -->
     <style name="PhotoDiaryTheme" parent="CustomTheme">
 
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
         <item name="android:windowBackground">@color/colorAccent</item>
         <item name="android:textColorHint">@color/text_hint_color</item>
         <item name="colorControlHighlight">@color/text_hint_color</item>
         <item name="colorControlActivated">@color/text_hint_activated_color</item>
 
     </style>
+
+    <style name="AlbumTheme" parent="MaterialTheme.Light.DarkToolbar">
+
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+
+
+    </style>
+
 
 
 

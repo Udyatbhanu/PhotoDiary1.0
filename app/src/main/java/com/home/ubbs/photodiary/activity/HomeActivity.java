@@ -1,11 +1,13 @@
 package com.home.ubbs.photodiary.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.home.ubbs.photodiary.R;
 import com.home.ubbs.photodiary.adapter.AlbumsAdapter;
@@ -49,7 +51,18 @@ public class HomeActivity extends PhotoDiaryBaseActivity {
 
         cameraButton.setImageDrawable(icon);
 
-//        cameraButton.setImageDrawable(new IconicsDrawable(this), FontAwesome.Icon.faw_camera).actionBar();
+        cameraButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ViewAlbumActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.animator.slide_in_left,
+                        R.animator.slide_out_left);
+
+            }
+        });
+
     }
 
     @Override

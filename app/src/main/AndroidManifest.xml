@@ -21,6 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.NewAlbumActivity" />
+        <activity android:name=".activity.ViewAlbumActivity"
+            android:theme="@style/AlbumTheme"/>
     </application>
 
 </manifest>
